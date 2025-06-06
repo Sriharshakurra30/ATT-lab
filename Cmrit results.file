@@ -1,0 +1,37 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class CMRIT_RESULTS {
+    public static void main(String[] args) throws InterruptedException {
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://cmrithyderabad.edu.in/");
+
+        Thread.sleep(2000);
+
+        WebElement examinationMenu = driver.findElement(By.xpath("//a[contains(text(),'EXAMINATION')]"));
+        examinationMenu.click();
+
+        Thread.sleep(1000);
+
+        WebElement resultButton = driver.findElement(By.xpath("//a[contains(text(),'EXAMINATION') and contains(text(),'Results')]"));
+        resultButton.click();
+
+        Thread.sleep(1000);
+
+        WebElement r22Btn = driver.findElement(By.id("R22"));
+        r22Btn.click();
+
+        Thread.sleep(2000);
+
+        WebElement btechBtn = driver.findElement(By.xpath("//a[@id='resultlist']/a[1]/div"));
+        btechBtn.click();
+
+        Thread.sleep(2000);
+
+        WebElement searchRollNo = driver.findElement(By.xpath("//form[@id='resultform']//input"));
+        searchRollNo.sendKeys("24ROSA0524");
+    }
+}
